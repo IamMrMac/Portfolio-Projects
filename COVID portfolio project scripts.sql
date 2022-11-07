@@ -1,20 +1,19 @@
-select location, population
-from CovidDeaths
---where continent is not null
---order by 3,4;
-
 -- Determine database in use
 use PortfolioProjects
 
---select data for use
+-- View table 
+select *
+from CovidDeaths
 
-select location, date, total_cases, new_cases, total_deaths, population
+--select data for use. We added the where clause to sort the data according to countries, eliminating the continents that appeared under the location column
+
+select location, date, total_cases, new_cases, total_deaths, population. 
 from CovidDeaths
 where continent is not null
 order by 1,2;
 
 --Total cases versus Total deaths
---This shows the likelihood of dying if you contract covid
+--This shows the likelihood of dying if you contract covid. Using the The USA as reference
 select location, date, total_cases, total_deaths, round((total_deaths/total_cases)*100, 1) death_rate
 from CovidDeaths
 where location  like '%states%' 
