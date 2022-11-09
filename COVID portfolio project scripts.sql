@@ -70,16 +70,7 @@ from CovidDeaths
 where continent is not null
 order by 1,2 ;
 
-
---Total percentage of world population that contracted the virus
-select continent, location, population, sum(new_cases) totalnewcases, sum(new_cases)/sum(population) *100 death_rate
-from CovidDeaths
---where location  like '%states%' 
-where continent is not null and new_cases is not null
-group by continent, population, location
-order by 1,2; 
-
-
+                                          -- Working on Joining two tables to draw insight
 --Viewing the CovidVacinations table
 select *
 from CovidVacinations
